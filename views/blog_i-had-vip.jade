@@ -69,7 +69,36 @@ block content
           <span>root@jswny.io blog$</span> <span id="line2" style="white-space:pre;"></span>
         `,
         '<br><span>root@jswny.io navigation$</span> <span id="line3" style="white-space:pre;"></span>',
-        '<br><a href="/">home</a> <a href="/blog">blog</a> <a href="/projects">projects</a>'
+        `
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-home"></i>
+                </td>
+                <td>
+                  <a href="/">home</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-align-left"></i>
+                </td>
+                <td>
+                  <a href="/blog">blog</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-folder"></i>
+                </td>
+                <td>
+                  <a href="/projects">projects</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        `
       ];
       type(0, text, print);
     };

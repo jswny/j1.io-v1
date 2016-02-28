@@ -14,10 +14,86 @@ block content
       var print = [
         '<br><span>root@jswny.io ~$</span> <span id="line2" style="white-space:pre;"></span>',
         '<br><span>root@jswny.io links$</span> <span id="line3" style="white-space:pre;"></span>',
-        '<br><a href="//github.com/jswny">github</a> <a href="//keybase.io/jswny">keybase</a> <a href=//twitter.com/jswny>twitter</a> <a href="//jswny.deviantart.com/">deviantart</a> <span>email.txt<span> <br><br><span>root@jswny.io links$</span> <span id="line4" style="white-space:pre;"></span>',
-        '<br><span>joe@jswny.io</span><br><br><span>root@jswny.io links$</span> <span id="line5" style="white-space:pre;"></span>',
+        `
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-github"></i>
+                </td>
+                <td>
+                  <a href="//github.com/jswny">GitHub</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-key"></i>
+                </td>
+                <td>
+                  <a href="//keybase.io/jswny">Keybase</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-twitter"></i>
+                </td>
+                <td>
+                  <a href="//twitter.com/jswny">Twitter</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-deviantart"></i>
+                </td>
+                <td>
+                  <a href="//jswny.deviantart.com/">DeviantArt</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-envelope"></i>
+                </td>
+                <td>
+                  <span>email.txt</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span>root@jswny.io links$</span>
+          <span id="line4" style="white-space:pre;"></span>
+        `,
+        '<br><a href="mailto:joe@jswny.io">joe@jswny.io</a><br><br><span>root@jswny.io links$</span> <span id="line5" style="white-space:pre;"></span>',
         '<br><span>root@jswny.io navigation$</span> <span id="line6" style="white-space:pre;"></span>',
-        '<br><a href="/">home</a> <a href="/blog">blog</a> <a href="/projects">projects</a>'
+        `
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-home"></i>
+                </td>
+                <td>
+                  <a href="/">home</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-align-left"></i>
+                </td>
+                <td>
+                  <a href="/blog">blog</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-folder"></i>
+                </td>
+                <td>
+                  <a href="/projects">projects</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        `
       ];
       type(0, text, print);
     };
