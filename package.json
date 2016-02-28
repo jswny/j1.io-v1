@@ -1,5 +1,6 @@
 {
-  "name": "MySite",
+  "name": "jswny.io",
+  "author": "jswny",
   "version": "0.0.1",
   "private": "true",
   "dependencies": {
@@ -7,5 +8,8 @@
     "jade": "*",
     "stylus": "*",
     "nib": "*"
+  },
+  "scripts": {
+    "test": "server.js"
   }
 }
