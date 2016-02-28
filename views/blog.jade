@@ -1,0 +1,75 @@
+extend layout
+block content
+  script.
+    window.onload = function() {
+      var text = [
+        ["^1000cd blog"],
+        ["^1000ls"],
+        ["^1000cd ~/navigation"],
+        ["^1000ls"]
+      ];
+
+      var print = [
+        '<br><span>root@jswny.io blog$</span> <span id="line2" style="white-space:pre;"></span>',
+        `
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  11/30/2015
+                </td>
+                <td>
+                  <h3 class="inline">
+                    <a href="blog/fucking-linux">fucking-linux.txt</a>
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  12/01/2015
+                </td>
+                <td>
+                  <h3 class="inline">
+                    <a href="blog/troubleshooting-linux">troubleshooting-linux.txt</a>
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  02/02/2016
+                </td>
+                <td>
+                  <h3 class="inline">
+                    <a href="blog/the-brain">the-brain.txt</a>
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  02/23/2016
+                </td>
+                <td>
+                  <h3 class="inline">
+                    <a href="blog/exit">exit.txt</a>
+                  </h3>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  02/25/2016
+                </td>
+                <td>
+                  <h3 class="inline">
+                    <a href="blog/i-had-vip">i-had-vip.txt</a>
+                  </h3>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <span>root@jswny.io blog$</span> <span id="line3" style="white-space:pre;"></span>
+        `,
+        '<br><span>root@jswny.io navigation$</span> <span id="line4" style="white-space:pre;"></span>',
+        '<br><a href="/">home</a> <a href="/blog">blog</a> <a href="/projects">projects</a>'
+      ];
+      type(0, text, print);
+    };

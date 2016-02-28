@@ -1,0 +1,134 @@
+body {
+  background-color: #000;
+  font-family: 'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace;
+  color: #fff;
+  font-size: 100%;
+}
+a {
+  text-decoration: none;
+  color: #39f;
+}
+table {
+  margin: 5px;
+  border-collapse: separate;
+}
+td {
+  padding-right: 7px;
+}
+.inline {
+  display: inline;
+}
+.typed-cursor {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  -o-animation: blink 0.7s infinite;
+  -ms-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@-o-keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+  50% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: none;
+    filter: none;
+  }
+}

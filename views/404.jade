@@ -1,0 +1,21 @@
+extend layout
+block content
+  script.
+    window.onload = function() {
+      var text = [
+        ["^1000cd #{query}"],
+        ["^1000cd ~/navigation"],
+        ["^1000ls"]
+      ];
+      var print = [
+        `
+          <br>
+          -bash: cd: #{query}: No such file or directory
+          <br><br>
+          <span>root@jswny.io blog$</span> <span id="line2" style="white-space:pre;"></span>
+        `,
+        '<br><span>root@jswny.io navigation$</span> <span id="line3" style="white-space:pre;"></span>',
+        '<br><a href="/">home</a> <a href="/blog">blog</a> <a href="/projects">projects</a>'
+      ];
+      type(0, text, print);
+    };

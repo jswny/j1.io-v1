@@ -1,0 +1,56 @@
+@import 'nib'
+
+background-color = black
+text-color = white
+accent-color = #3399ff
+accent-color2 = #fa5b4d
+
+body
+  background-color background-color
+  font-family 'Lucida Console', 'Lucida Sans Typewriter', monaco, 'Bitstream Vera Sans Mono', monospace
+  color text-color
+  font-size 100%
+
+a
+  text-decoration none
+  color accent-color
+
+table
+  margin 5px
+  border-collapse separate
+
+td
+  padding-right 7px
+
+.inline
+  display inline
+
+.typed-cursor
+  opacity 1
+  -webkit-animation blink 0.7s infinite
+  -moz-animation blink 0.7s infinite
+  animation blink 0.7s infinite
+
+@keyframes blink
+  0%
+    opacity 1
+  50%
+    opacity 0
+  100%
+    opacity 1
+
+@-webkit-keyframes blink
+  0%
+    opacity 1
+  50%
+    opacity 0
+  100%
+    opacity 1
+
+@-moz-keyframes blink
+  0%
+    opacity 1
+  50%
+    opacity 0
+  100%
+    opacity 1
