@@ -10,6 +10,6 @@
     "nib": "*"
   },
   "scripts": {
-    "test": "server.js"
+    "test": "node server.js"
   }
 }
