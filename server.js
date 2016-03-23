@@ -22,7 +22,10 @@ app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
   res.render('index',
-    { title : 'Home' }
+    {
+      title : 'Home',
+      domain : req.headers.host
+    }
   );
 });
 
@@ -37,43 +40,64 @@ app.get('/blog', function (req, res) {
   //   }
   // });
   res.render('blog',
-    { title : 'Blog' }
+    {
+      title : 'Blog',
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/blog/fucking-linux', function (req, res) {
   res.render('blog_fucking-linux',
-    { title : 'Fucking Linux' }
+    {
+      title : 'Fucking Linux',
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/blog/troubleshooting-linux', function (req, res) {
   res.render('blog_troubleshooting-linux',
-    { title : 'Troubleshooting Linux' }
+    {
+      title : 'Troubleshooting Linux',
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/blog/the-brain', function (req, res) {
   res.render('blog_the-brain',
-    { title : "The Brain" }
+    {
+      title : "The Brain",
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/blog/exit', function (req, res) {
   res.render('blog_exit',
-    { title : 'Exit' }
+    {
+      title : 'Exit',
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/blog/i-had-vip', function (req, res) {
   res.render('blog_i-had-vip',
-    { title : 'I Had VIP' }
+    {
+      title : 'I Had VIP',
+      domain : req.headers.host
+    }
   );
 });
 
 app.get('/projects', function (req, res) {
   res.render('projects',
-    { title : 'Projects' }
+    {
+      title : 'Projects',
+      domain : req.headers.host
+    }
   );
 });
 
@@ -82,7 +106,8 @@ app.get('*', function(req, res){
   res.render('404',
     {
       title : '404',
-      query : req.params
+      query : req.params,
+      domain : req.headers.host
     }
   );
 });
