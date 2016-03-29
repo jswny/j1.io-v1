@@ -1,0 +1,49 @@
+extend layout
+block content
+  script.
+    window.onload = function() {
+      var text = [
+        ["^1000cat #{title}"],
+        ["^1000cd ~/navigation"],
+        ["^1000ls"]
+      ];
+
+      var print = [
+        `
+          !{content}
+          <span>root@#{domain} blog$</span> <span id="line2" style="white-space:pre;"></span>
+        `,
+        '<br><span>root@#{domain} navigation$</span> <span id="line3" style="white-space:pre;"></span>',
+        `
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <i class="fa fa-home"></i>
+                </td>
+                <td>
+                  <a href="/">home</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-align-left"></i>
+                </td>
+                <td>
+                  <a href="/blog">blog</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <i class="fa fa-comment"></i>
+                </td>
+                <td>
+                  <a href="/projects">projects</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        `
+      ];
+      type(0, text, print);
+    };

@@ -47,51 +47,6 @@ app.get('/blog', function (req, res) {
   );
 });
 
-app.get('/blog/fucking-linux', function (req, res) {
-  res.render('blog_fucking-linux',
-    {
-      title : 'Fucking Linux',
-      domain : req.headers.host
-    }
-  );
-});
-
-app.get('/blog/troubleshooting-linux', function (req, res) {
-  res.render('blog_troubleshooting-linux',
-    {
-      title : 'Troubleshooting Linux',
-      domain : req.headers.host
-    }
-  );
-});
-
-app.get('/blog/the-brain', function (req, res) {
-  res.render('blog_the-brain',
-    {
-      title : "The Brain",
-      domain : req.headers.host
-    }
-  );
-});
-
-app.get('/blog/exit', function (req, res) {
-  res.render('blog_exit',
-    {
-      title : 'Exit',
-      domain : req.headers.host
-    }
-  );
-});
-
-app.get('/blog/i-had-vip', function (req, res) {
-  res.render('blog_i-had-vip',
-    {
-      title : 'I Had VIP',
-      domain : req.headers.host
-    }
-  );
-});
-
 app.get('/projects', function (req, res) {
   res.render('projects',
     {
@@ -99,6 +54,19 @@ app.get('/projects', function (req, res) {
       domain : req.headers.host
     }
   );
+});
+
+app.get('/blog/*', function (req, res) {
+  fs.readFile('./articles/' + req.params + '.html', function(err, data) {
+    if (err) console.log(err);
+    res.render('article',
+      {
+        title: req.params + '.txt',
+        content : data,
+        domain : req.headers.host
+      }
+    );
+  });
 });
 
 app.get('*', function(req, res){
@@ -112,4 +80,4 @@ app.get('*', function(req, res){
   );
 });
 
-app.listen(80);
+app.listen(3000);
