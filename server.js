@@ -2,6 +2,7 @@ var express = require('express');
 var stylus = require('stylus');
 var nib = require('nib');
 var fs = require('fs');
+var f = require('./bin/functions.js');
 
 var app = express();
 
@@ -49,7 +50,7 @@ app.get('/blog', function (req, res) {
     for (i = 0; i < files.length; i++) {
       if (files[i].indexOf('.js') > -1) {
         var article = require('./articles/' + files[i]);
-        articles += template.replace('{date}', article.date).replace(/{file}/g, files[i].replace('.js', ''));
+        articles += template.replace('{date}', functions.dateConv(article.date)).replace(/{file}/g, files[i].replace('.js', ''));
       }
     }
     res.render('blog',
