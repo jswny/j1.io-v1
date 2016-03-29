@@ -3,13 +3,15 @@ block content
   script.
     window.onload = function() {
       var text = [
-        ["^1000cat #{title}"],
+        ["^1000cat #{file}"],
         ["^1000cd ~/navigation"],
         ["^1000ls"]
       ];
 
       var print = [
         `
+          <h1 style="text-align: center">#{title}</h1>
+          <h4 style="text-align: center">#{date}</h4>
           !{content}
           <span>root@#{domain} blog$</span> <span id="line2" style="white-space:pre;"></span>
         `,
