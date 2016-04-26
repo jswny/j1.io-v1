@@ -1,6 +1,7 @@
 var express = require('express')
 var stylus = require('stylus')
 var nib = require('nib')
+var request = require('request')
 var f = require('./bin/functions.js')
 
 var app = express();
@@ -13,7 +14,6 @@ function compile(str, path) {
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.use(express.logger('dev'));
 app.use(stylus.middleware(
   { src: __dirname + '/public' , compile: compile}
 ));
@@ -49,6 +49,20 @@ app.get('/hireme', function (req, res) {
       domain : req.headers.host
     }
   );
+});
+
+app.get('/resume', function (req, res) {
+  var date = new Date(Date.now())
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var year = date.getFullYear().toString().slice(-2)
+  var fileDate = month + '.' + day + '.' + year
+  res.setHeader('Content-disposition', 'inline; filename=Sweeney-John-Resume-' + fileDate + '.pdf')
+  res.setHeader('Content-type', 'application/pdf')
+  
+  f.processResume(function(data) {
+    res.send(data)
+  });
 });
 
 app.get('*', function(req, res){

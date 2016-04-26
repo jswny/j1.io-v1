@@ -1,4 +1,5 @@
 var fs = require('fs')
+var request = require('request')
 
 module.exports = {
   dateConv: function(date) {
@@ -76,5 +77,18 @@ module.exports = {
       </table>
     `
     return res
+  },
+  
+  processResume: function(callback) {
+    var url = 'https://docs.google.com/document/d/19oHVdNPB6kei_OaQSQ1afYZCcQFh_oBw91yiNG2mLHQ/export?format=pdf'
+    var r = request(url)
+    var data = []
+    r.on('data', function(chunk) { 
+      data.push(chunk)
+    });
+    r.on('end', function() {
+      data = Buffer.concat(data)
+      callback(data)
+    });
   }
 }
