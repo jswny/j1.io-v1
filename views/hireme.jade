@@ -1,0 +1,39 @@
+extend layout
+block content
+  script.
+    window.onload = function() {
+      var text = [
+        ["^1000Why hire me?", "cat hireme.txt"],
+        ["^1000cd ~/navigation"],
+        ["^1000ls"]
+      ];
+
+      var print = [
+        `
+          <ul>
+            <li>
+              I am an extremely driven Computer Science student with a passion for practicality.
+            </li>
+            <li>
+              I am a perfectionist. If something isn't done as well as it could possibly be done, it needs to be fixed.
+            </li>
+            <li>
+              Organization is key. I'm never satisfied until my work is as clean and organized as possible.
+            </li>
+            <li>
+              Writing is extremely important to me. I'm a strong writer, and I take pride in my ability to craft technical writings, as well as various other formats.
+            </li>
+            <li>
+              Resourcefulness is one of my strongest qualities. If it needs to be done, I can figure out how it should be done.
+            </li>
+          </ul>
+          <i class="fa fa-file-text-o"></i> <a href="./resume.pdf">Resume (updated #{modified})</a>
+          <br>
+          <br>
+          <span>root@#{domain} ~$</span> <span id="line2" style="white-space:pre;"></span>
+        `,
+        '<br><span>root@#{domain} navigation$</span> <span id="line3" style="white-space:pre;"></span>',
+        `!{navigation}`
+      ];
+      type(0, text, print);
+    };

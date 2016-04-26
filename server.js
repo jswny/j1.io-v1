@@ -1,8 +1,7 @@
-var express = require('express');
-var stylus = require('stylus');
-var nib = require('nib');
-var fs = require('fs');
-var f = require('./bin/functions.js');
+var express = require('express')
+var stylus = require('stylus')
+var nib = require('nib')
+var f = require('./bin/functions.js')
 
 var app = express();
 
@@ -25,6 +24,7 @@ app.get('/', function (req, res) {
   res.render('index',
     {
       title : 'Home',
+      navigation : f.getNavigation(),
       domain : req.headers.host
     }
   );
@@ -34,6 +34,18 @@ app.get('/projects', function (req, res) {
   res.render('projects',
     {
       title : 'Projects',
+      navigation : f.getNavigation(),
+      domain : req.headers.host
+    }
+  );
+});
+
+app.get('/hireme', function (req, res) {
+  res.render('hireme',
+    {
+      title : 'Hire Me',
+      modified : f.getModifiedDate('./public/resume.pdf'),
+      navigation : f.getNavigation(),
       domain : req.headers.host
     }
   );
@@ -45,6 +57,7 @@ app.get('*', function(req, res){
     {
       title : '404',
       query : req.params,
+      navigation : f.getNavigation(),
       domain : req.headers.host
     }
   );

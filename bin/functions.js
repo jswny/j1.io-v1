@@ -1,6 +1,7 @@
+var fs = require('fs')
+
 module.exports = {
   dateConv: function(date) {
-    "25 February 2016"
     var months = [
       'January',
       'February',
@@ -13,7 +14,7 @@ module.exports = {
       'September',
       'October',
       'November',
-      'December',
+      'December'
     ]
     
     var arr = date.split(' ');
@@ -25,5 +26,55 @@ module.exports = {
         arr[i] = '0' + arr[i];
     }
     return arr.join('/');
+  },
+  
+  getModifiedDate: function(path) {
+    var stats = fs.statSync(path) 
+    var dateArr = stats.mtime.toString().split(' ')
+    var date = dateArr[2] + " " + dateArr[1]
+    return date
+  },
+  
+  getNavigation: function() {
+    var res = 
+    `
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa fa-home"></i>
+            </td>
+            <td>
+              <a href="/">home</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-comment"></i>
+            </td>
+            <td>
+              <a href="http://blog.j1.io/">blog</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-align-left"></i>
+            </td>
+            <td>
+              <a href="/projects">projects</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fa fa-briefcase"></i>
+            </td>
+            <td>
+              <a href="/hireme">hire me</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    `
+    return res
   }
 }
