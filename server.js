@@ -44,7 +44,7 @@ app.get('/hireme', function (req, res) {
   res.render('hireme',
     {
       title : 'Hire Me',
-      modified : f.getModifiedDate('./public/resume.pdf'),
+      // modified : f.getModifiedDate('./public/resume.pdf'),
       navigation : f.getNavigation(),
       domain : req.headers.host
     }
