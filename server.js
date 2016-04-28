@@ -66,11 +66,10 @@ app.get('/resume', function (req, res) {
 });
 
 app.get('*', function(req, res){
-  console.log(req.url);
   res.render('404',
     {
       title : '404',
-      query : req._parsedurl,
+      query : req.url,
       navigation : f.getNavigation(),
       domain : req.headers.host
     }
