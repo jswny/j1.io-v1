@@ -51,6 +51,16 @@ app.get('/hireme', function (req, res) {
   );
 });
 
+app.get('/wtf', function (req, res) {
+  res.render('wtf',
+    {
+      title : 'WTF',
+      navigation : f.getNavigation(),
+      domain : req.headers.host
+    }
+  );
+});
+
 app.get('/resume', function (req, res) {
   var date = new Date(Date.now())
   var month = date.getMonth() + 1
