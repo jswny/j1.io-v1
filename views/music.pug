@@ -1,0 +1,22 @@
+extend layout
+block content
+  script.
+    window.onload = function() {
+      var text = [
+        ["^1000cd music"],
+        ["^1000ls"],
+        ["^1000cd ~/navigation"],
+        ["^1000ls"]
+      ];
+
+      var print = [
+        '<br><span>root@#{domain} music$</span> <span id="line2" style="white-space:pre;"></span>',
+        `
+          !{playlist}
+          <span>root@#{domain} music$</span> <span id="line3" style="white-space:pre;"></span>
+        `,
+        '<br><span>root@#{domain} navigation$</span> <span id="line4" style="white-space:pre;"></span>',
+        `!{navigation}`
+      ];
+      type(0, text, print);
+    };

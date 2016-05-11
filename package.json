@@ -5,9 +5,10 @@
   "private": "true",
   "dependencies": {
     "express": "*",
-    "pug": "*",
     "nib": "*",
+    "pug": "*",
     "request": "^2.72.0",
+    "spotify-web-api-node": "^2.3.0",
     "stylus": "*"
   },
   "scripts": {
