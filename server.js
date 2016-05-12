@@ -63,7 +63,7 @@ app.get('/wtf', function (req, res) {
 
 app.get('/music/:playlist_id', function (req, res) {
   var playlist_id = req.params.playlist_id
-  s.getTracksFromPlaylist('12186155030', playlist_id, function(playlist) {
+  s.getDataFromPlaylist('12186155030', playlist_id, function(playlist) {
       res.render('music',
       {
         title: 'Music',

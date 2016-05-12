@@ -8,16 +8,16 @@ var spotifyApi = new SpotifyWebApi({
 })
 
 module.exports = {
-	getTracksFromPlaylist: getTracksFromPlaylist
+	getDataFromPlaylist: getDataFromPlaylist
 }
-function getTracksFromPlaylist(userId, playlistId, callback) {
+function getDataFromPlaylist(userId, playlistId, callback) {
 	spotifyApi.clientCredentialsGrant()
 		.then(function(data) {
 			spotifyApi.setAccessToken(data.body['access_token'])
 			spotifyApi.getPlaylist(userId, playlistId)
 			.then(function(data) {
 				var tracks = data.body.tracks.items
-				var arr = new Array()
+				var tracksArr = new Array()
 				tracks.forEach(function(track) {
 					var name = track.track.name
 					var artists = ''
@@ -26,13 +26,23 @@ function getTracksFromPlaylist(userId, playlistId, callback) {
 					})
 					artists = artists.slice(0, -2)
 					var album = track.track.album.name
-					arr.push({
+					tracksArr.push({
 						name: name,
 						artist: artists,
 						album: album
 					})
 				})
-				callback(arr)
+				res = {
+					name: data.body.name,
+					img: data.body.images[1].url,
+					user: {
+						name: 'Joe Sweeney',
+						url: data.body.owner.external_urls.spotify,
+						id: data.body.owner.id
+					},
+					tracks: tracksArr
+				}
+				callback(res)
 			}, function(err) {
 				console.log('Something went wrong!', err)
 			})

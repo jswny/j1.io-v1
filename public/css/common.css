@@ -18,6 +18,23 @@ td {
 .inline {
   display: inline;
 }
+#playlist-header td {
+  padding-right: 20px;
+}
+#playlist {
+  border-collapse: collapse;
+}
+#playlist td {
+  padding-right: 15px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 30%;
+  border: solid;
+  border-width: 1px 0;
+}
+.track-num {
+  width: 3% !important;
+}
 .typed-cursor {
   opacity: 1;
   -ms-filter: none;

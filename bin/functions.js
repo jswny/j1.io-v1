@@ -64,10 +64,29 @@ function processResume(callback) {
 }
 
 function buildPlaylistTable(playlist) {
-  var res = '<table>'
-  playlist.forEach(function(track) {
+  var tracks = playlist.tracks
+  var res = 
+    '<br>' +
+    '<table id="playlist-header">' +
+    '<tr><td>' +
+    '<img height="200" width="200" src="' + playlist.img + '"></img>' +
+    '</td><td>' +
+    '<h2>' + playlist.name + '</h2>' +
+    '<strong>By: <a href="' + playlist.user.url + '">' + playlist.user.name + '</a></strong>' +
+    '</td></tr>' +
+    '</table>' +
+    '<table id="playlist">'
+  var pad = ''
+  for (var i = 0; i < tracks.length.toString().length; i++) {
+    pad += '0'
+  }
+  tracks.forEach(function(track, index) {
+    var i = "" + (index + 1)
     res +=
       '<tr>' +
+      '<td class="track-num">' +
+      (pad.substring(i.length) + i) +
+      '</td>' +
       '<td>' +
       track.name +
       '</td>' +
@@ -80,4 +99,8 @@ function buildPlaylistTable(playlist) {
   })
   res += '</table>'
   return res
+}
+
+function padLeft (nr, n, str) {
+  return Array(n-String(nr).length+1).join(str||'0')+nr
 }
