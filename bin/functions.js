@@ -71,9 +71,14 @@ function buildPlaylistTable(playlist) {
     '<tr><td>' +
     '<img height="200" width="200" src="' + playlist.img + '"></img>' +
     '</td><td>' +
-    '<h2>' + playlist.name + '</h2>' +
+    '<h2><a class="link-no-style" href="' + playlist.url + '">' + playlist.name + '</a></h2>' +
     '<strong>By: <a href="' + playlist.user.url + '">' + playlist.user.name + '</a></strong>' +
-    '</td></tr>' +
+    ' ● ' + playlist.total_tracks + ' songs' +
+    '</td><tfoot><tr>' +
+    '<td></td><td></td>' +
+    '<td valign="bottom" align="right">'+
+    playlist.followers + ' Followers' +
+    '</td></tr></tfoot>' +
     '</table>' +
     '<table id="playlist">'
   var pad = ''

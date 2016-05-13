@@ -1,6 +1,6 @@
 var SpotifyWebApi = require('spotify-web-api-node')
 var clientId = 'd3d21a190f7a45bebc6d4df68b648c36'
-var clientSecret = '1ab8ecc6055b446daef5870ca408adf2'
+var clientSecret = 'secret'
 
 var spotifyApi = new SpotifyWebApi({
 	clientId: clientId,
@@ -35,6 +35,9 @@ function getDataFromPlaylist(userId, playlistId, callback) {
 				res = {
 					name: data.body.name,
 					img: data.body.images[1].url,
+					url: data.body.external_urls.spotify,
+					followers: data.body.followers.total,
+					total_tracks: data.body.tracks.total,
 					user: {
 						name: 'Joe Sweeney',
 						url: data.body.owner.external_urls.spotify,

@@ -8,6 +8,9 @@ a {
   text-decoration: none;
   color: #39f;
 }
+.link-no-style {
+  color: #fff;
+}
 table {
   margin: 5px;
   border-collapse: separate;
@@ -18,11 +21,16 @@ td {
 .inline {
   display: inline;
 }
+#playlist-header {
+  margin-top: 15px;
+  width: 100%;
+}
 #playlist-header td {
   padding-right: 20px;
 }
 #playlist {
   border-collapse: collapse;
+  margin-bottom: 15px;
 }
 #playlist td {
   padding-right: 15px;
