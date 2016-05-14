@@ -40,6 +40,20 @@ td {
   border: solid;
   border-width: 1px 0;
 }
+#playlist-list {
+  border-collapse: collapse;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+#tr-head td {
+  padding-bottom: 4px;
+  padding-top: 4px;
+  border: solid;
+  border-width: 1px 0;
+}
+#tr-head {
+  padding-bottom: 7px;
+}
 .track-num {
   width: 3% !important;
 }

@@ -4,7 +4,8 @@ var request = require('request')
 module.exports = {
   getNavigation: getNavigation,
   processResume: processResume,
-  buildPlaylistTable: buildPlaylistTable
+  buildPlaylistTable: buildPlaylistTable,
+  buildUserPlaylistsTable: buildUserPlaylistsTable
 }
 
 function getNavigation() {
@@ -101,6 +102,34 @@ function buildPlaylistTable(playlist) {
       '<td>' +
       track.album +
       '</td>'
+  })
+  res += '</table>'
+  return res
+}
+
+function buildUserPlaylistsTable(playlists) {
+  var res = 
+    '<table id="playlist-list">' +
+    '<tr id="tr-head"><td>' +
+    '' + 
+    '</td><td>' +
+    'Name' +
+    '</td><td>' +
+    'Followers' +
+    '</td><td>' +
+    'Tracks' +
+    '</td></tr>'
+  playlists.forEach(function(playlist) {
+    res +=
+      '<tr><td>' +
+      '<img src="' + playlist.img + '"></img>' +
+      '</td><td>' +
+      '<a href="/music/' + playlist.id + '">' + playlist.name + '</a>' +
+      '</td><td>' +
+      playlist.followers +
+      '</td><td>' +
+      playlist.total_tracks +
+      '</td></tr>'
   })
   res += '</table>'
   return res

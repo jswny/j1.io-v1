@@ -61,12 +61,27 @@ app.get('/wtf', function (req, res) {
   );
 });
 
+app.get('/music', function (req, res) {
+  var test = s.getUserPlaylists('12186155030', function(playlists) {
+      res.render('music',
+      {
+        title: 'Music',
+        cmd: 'ls',
+        playlist: f.buildUserPlaylistsTable(playlists),
+        navigation: f.getNavigation(),
+        domain: req.headers.host
+      }
+    );
+  })
+});
+
 app.get('/music/:playlist_id', function (req, res) {
   var playlist_id = req.params.playlist_id
   s.getDataFromPlaylist('12186155030', playlist_id, function(playlist) {
       res.render('music',
       {
-        title: 'Music',
+        title: playlist.name + ' - Music',
+        cmd: 'cat ' + playlist.name,
         playlist: f.buildPlaylistTable(playlist),
         navigation: f.getNavigation(),
         domain: req.headers.host
