@@ -61,11 +61,11 @@ app.get('/wtf', function (req, res) {
   );
 });
 
-app.get('/music', function (req, res) {
+app.get('/playlists', function (req, res) {
   var test = s.getUserPlaylists('12186155030', function(playlists) {
-      res.render('music',
+      res.render('playlist',
       {
-        title: 'Music',
+        title: 'Playlists',
         cmd: 'ls',
         playlist: f.buildUserPlaylistsTable(playlists),
         navigation: f.getNavigation(),
@@ -75,12 +75,12 @@ app.get('/music', function (req, res) {
   })
 });
 
-app.get('/music/:playlist_id', function (req, res) {
+app.get('/playlist/:playlist_id', function (req, res) {
   var playlist_id = req.params.playlist_id
   s.getDataFromPlaylist('12186155030', playlist_id, function(playlist) {
-      res.render('music',
+      res.render('playlist',
       {
-        title: playlist.name + ' - Music',
+        title: playlist.name + ' - Playlist',
         cmd: 'cat ' + playlist.name,
         playlist: f.buildPlaylistTable(playlist),
         navigation: f.getNavigation(),

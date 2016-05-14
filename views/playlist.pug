@@ -3,17 +3,17 @@ block content
   script.
     window.onload = function() {
       var text = [
-        ["^1000cd music"],
+        ["^1000cd playlists"],
         ["^1000#{cmd}"],
         ["^1000cd ~/navigation"],
         ["^1000ls"]
       ];
 
       var print = [
-        '<br><span>root@#{domain} music$</span> <span id="line2" style="white-space:pre;"></span>',
+        '<br><span>root@#{domain} playlists$</span> <span id="line2" style="white-space:pre;"></span>',
         `
           !{playlist}
-          <span>root@#{domain} music$</span> <span id="line3" style="white-space:pre;"></span>
+          <span>root@#{domain} playlists$</span> <span id="line3" style="white-space:pre;"></span>
         `,
         '<br><span>root@#{domain} navigation$</span> <span id="line4" style="white-space:pre;"></span>',
         `!{navigation}`

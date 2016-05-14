@@ -39,6 +39,14 @@ function getNavigation() {
         </tr>
         <tr>
           <td>
+            <i class="fa fa-headphones"></i>
+          </td>
+          <td>
+            <a href="/playlists">playlists</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
             <i class="fa fa-briefcase"></i>
           </td>
           <td>
@@ -115,20 +123,21 @@ function buildUserPlaylistsTable(playlists) {
     '</td><td>' +
     'Name' +
     '</td><td>' +
-    'Followers' +
-    '</td><td>' +
     'Tracks' +
+    '</td><td>' +
+    'Followers' +
     '</td></tr>'
+    // '<tr><td></td><td></td><td></td><td></td></tr>'
   playlists.forEach(function(playlist) {
     res +=
       '<tr><td>' +
       '<img src="' + playlist.img + '"></img>' +
       '</td><td>' +
-      '<a href="/music/' + playlist.id + '">' + playlist.name + '</a>' +
-      '</td><td>' +
-      playlist.followers +
+      '<a href="/playlist/' + playlist.id + '">' + playlist.name + '</a>' +
       '</td><td>' +
       playlist.total_tracks +
+      '</td><td>' +
+      playlist.followers +
       '</td></tr>'
   })
   res += '</table>'
