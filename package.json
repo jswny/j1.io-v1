@@ -12,6 +12,6 @@
     "stylus": "*"
   },
   "scripts": {
-    "test": "node server.js"
+    "start": "node server.js"
   }
 }
