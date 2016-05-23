@@ -3,7 +3,7 @@ var stylus = require('stylus')
 var nib = require('nib')
 var request = require('request')
 var f = require('./bin/functions.js')
-var s = require('./bin/spotify.js')
+// var s = require('./bin/spotify.js')
 
 var app = express();
 
@@ -103,6 +103,10 @@ app.get('/resume', function (req, res) {
     res.send(data)
   });
 });
+
+app.get('/status', function(req, res) {
+  res.json({status: 'operational'})
+})
 
 app.get('*', function(req, res){
   res.render('404',
