@@ -68,6 +68,7 @@ This method is not recommended because it is highly dependent on your system con
   3. If you do not want to use spotify, simply comment out the following line in `server.js` which is `var s = require('./bin/spotify.js')`
 4. Inside the cloned repository, install the required modules with `$npm install`
 5. Place the following configuration file `j1.io.conf` inside your Nginx configuration directory (for CentOS that is `/etc/nginx/conf.d`):
+
   ```
   server {
     listen 80; # you can change this to any port you would like your server to respond to
