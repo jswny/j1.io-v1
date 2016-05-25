@@ -24,7 +24,7 @@ This is the repository for my personal website, which I've made to look like a s
 5. Nginx 1.6.3
 
 ## Deployment
-### Docker (Reccommended)
+### Docker (Recommended)
 To deploy j1.io using [Docker](https://www.docker.com/), you must first have docker installed for your system.
 
 1. Clone this repository: `$ git clone https://github.com/jswny/j1.io.git`
@@ -48,7 +48,7 @@ To deploy j1.io using [Docker](https://www.docker.com/), you must first have doc
 6. If you would like to use an automatic deployment script, you can try the one I've created [here](https://gist.github.com/jswny/d443c9af055d53229068b81014af825f) however you may want to configure the script before running it.
 
 ### Manual Deployment
-This method is not reccommended because it is highly dependent on your system configuration. For example some versions of Node may not support the HEREDOC syntax used in `bin/functions.js`.
+This method is not recommended because it is highly dependent on your system configuration. For example some versions of Node may not support the HEREDOC syntax used in `bin/functions.js`.
 
 1. Ensure that you have Node.js, NPM, and Nginx installed on your system (see testing environment).
 2. Clone this repository: `$ git clone https://github.com/jswny/j1.io.git`
@@ -66,6 +66,6 @@ This method is not reccommended because it is highly dependent on your system co
 5. Restart Nginx (`$ systemctl restart nginx`), or start it if you have not yet: `$ systemctl start nginx`
 6. Start your j1.io server using your preferred method.
   1. If you would like to start it the normal way, use `$ npm start`
-  2. If you would like to use a process manager like [forever](https://github.com/foreverjs/forever) (reccommended), do the following:
+  2. If you would like to use a process manager like [forever](https://github.com/foreverjs/forever) (recommended), do the following:
     1. `$ npm install forever -g`
     2. `forever start server.js`
