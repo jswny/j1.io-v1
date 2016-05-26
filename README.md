@@ -17,11 +17,11 @@ This is the repository for my personal website, which I've made to look like a s
 - `server.js` - Main server file which starts Express, compiles necessary files, and handles requests.
 
 ## Test Environment
-1. CentOS 7
-2. Node.js 4.0.0
-3. NPM 2.14.2
-4. Docker 1.9.1
-5. Nginx 1.6.3
+- CentOS 7
+- Node.js 4.0.0
+- NPM 2.14.2
+- Docker 1.9.1
+- Nginx 1.6.3
 
 ## Deployment
 ### Docker (Recommended)
