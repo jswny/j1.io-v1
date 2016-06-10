@@ -1,93 +1,93 @@
 extend layout
 block content
-  script.
-    window.onload = function() {
-      var text = [
-        ["Hi I'm Joe Sweeney", "I'm a 19 year old from CT", "I like to develop things", "I'm also a graphic designer"],
-        ["^1000cd links"],
-        ["^1000ls"],
-        ["^1000cat email.txt"],
-        ["^1000cd ~/navigation"],
-        ["^1000ls"]
-      ];
+	script.
+		window.onload = function() {
+			var text = [
+				["Hi I'm Joe Sweeney", "I'm a 19 year old from CT", "I like to develop things", "I'm also a graphic designer"],
+				["^1000cd links"],
+				["^1000ls"],
+				["^1000cat email.txt"],
+				["^1000cd ~/navigation"],
+				["^1000ls"]
+			];
 
-      var print = [
-        '<br><span>root@#{domain} ~$</span> <span id="line2" style="white-space:pre;"></span>',
-        '<br><span>root@#{domain} links$</span> <span id="line3" style="white-space:pre;"></span>',
-        `
-          <table>
-            <tbody>
-              <tr>
-                <td>
-                  <i class="fa fa-github"></i>
-                </td>
-                <td>
-                  <a href="//github.com/jswny">GitHub</a>
-                </td>
-              </tr>
-	      <tr>
-	        <td>
-		  <i class="fa fa-linkedin"></i>
+			var print = [
+				'<br><span>root@#{domain} ~$</span> <span id="line2" style="white-space:pre;"></span>',
+				'<br><span>root@#{domain} links$</span> <span id="line3" style="white-space:pre;"></span>',
+				`
+					<table>
+						<tbody>
+							<tr>
+								<td>
+									<i class="fa fa-github"></i>
+								</td>
+								<td>
+									<a href="//github.com/jswny">GitHub</a>
+								</td>
+							</tr>
+				<tr>
+					<td>
+			<i class="fa fa-linkedin"></i>
 		</td>
 		<td>
-		  <a href="www.linkedin.com/in/jswny">LinkedIn</a>
+			<a href="www.linkedin.com/in/jswny">LinkedIn</a>
 		</td>
-	      </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-key"></i>
-                </td>
-                <td>
-                  <a href="//keybase.io/jswny">Keybase</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-twitter"></i>
-                </td>
-                <td>
-                  <a href="//twitter.com/jswny">Twitter</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-deviantart"></i>
-                </td>
-                <td>
-                  <a href="//jswny.deviantart.com/">DeviantArt</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <i class="fa fa-envelope"></i>
-                </td>
-                <td>
-                  <span>email.txt</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <span>root@#{domain} links$</span>
-          <span id="line4" style="white-space:pre;"></span>
-        `,
-        `
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <i class="fa fa-envelope-o"></i>
-              </td>
-              <td>
-                <a href="mailto:joe@j1.io">joe@j1.io</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <span>root@#{domain} links$</span>
-        <span id="line5"  style="white-space:pre;"></span>
-        `,
-        '<br><span>root@#{domain} navigation$</span> <span id="line6" style="white-space:pre;"></span>',
-        `!{navigation}`
-      ];
-      type(0, text, print);
-    };
+				</tr>
+							<tr>
+								<td>
+									<i class="fa fa-key"></i>
+								</td>
+								<td>
+									<a href="//keybase.io/jswny">Keybase</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="fa fa-twitter"></i>
+								</td>
+								<td>
+									<a href="//twitter.com/jswny">Twitter</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="fa fa-deviantart"></i>
+								</td>
+								<td>
+									<a href="//jswny.deviantart.com/">DeviantArt</a>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<i class="fa fa-envelope"></i>
+								</td>
+								<td>
+									<span>email.txt</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<span>root@#{domain} links$</span>
+					<span id="line4" style="white-space:pre;"></span>
+				`,
+				`
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<i class="fa fa-envelope-o"></i>
+							</td>
+							<td>
+								<a href="mailto:joe@j1.io">joe@j1.io</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<span>root@#{domain} links$</span>
+				<span id="line5"  style="white-space:pre;"></span>
+				`,
+				'<br><span>root@#{domain} navigation$</span> <span id="line6" style="white-space:pre;"></span>',
+				`!{navigation}`
+			];
+			type(0, text, print);
+		};
