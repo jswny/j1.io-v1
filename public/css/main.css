@@ -1,7 +1,20 @@
+body {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.sidebar {
+  background: rgb(61, 79, 93);
+}
+
 .header {
   text-align: center;
   top: auto;
   margin: 3em auto;
+  color: white;
+}
+
+.sidebar-title {
+  margin: 0px;
 }
 
 .footer {
@@ -9,10 +22,16 @@
   padding: 1em 0;
 }
 
+.pure-img-responsive {
+  max-width: 20%;
+  height: auto;
+}
+
 @media (min-width: 48em) {
-  .content {
-    padding: 2em 3em 0;
-    margin-left: 25%;
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
   }
 
   .header {
@@ -20,9 +39,12 @@
     text-align: right;
   }
 
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
+  .content {
+    padding: 2em 3em 0;
+    margin-left: 25%;
+  }  
+
+  .pure-img-responsive {
+    max-width: 50%;
   }
 }
