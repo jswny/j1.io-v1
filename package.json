@@ -10,7 +10,7 @@
     "spotify-web-api-node": "^2.3.0"
   },
   "scripts": {
-    "start": "nodemon lib/index.js --exec babel-node",
+    "start": "nodemon lib/index.js --exec babel-node -e js,hbs",
     "build": "babel lib -d dist",
     "serve": "node dist/index.js"
   },
