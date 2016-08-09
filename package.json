@@ -20,6 +20,8 @@
     "babel-preset-stage-2": "^6.11.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-file-cache": "0.0.1",
+    "gulp-nodemon": "^2.1.0",
     "gulp-sass": "^2.3.2",
     "nodemon": "^1.10.0"
   }
