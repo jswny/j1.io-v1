@@ -28,7 +28,7 @@ gulp.task('babel', () => {
   return stream;
 });
 
-gulp.task('default', ['babel', 'sass'], function () {
+gulp.task('watch', ['babel', 'sass'], function () {
   let stream = nodemon({
     script: './dist/index.js',
     watch: './lib',
