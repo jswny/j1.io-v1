@@ -1,4 +1,4 @@
-// @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
 
 body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -27,18 +27,21 @@ body {
   padding-top: 1em;
 }
 
-#sidebar-icons a {
-  color: white;
-  padding-left: 0.3em;
+#sidebar-icons {
+  a {
+    padding-left: 0.3em;
+  }
 }
 
 .icon-background {
   color: #e81c4f;
 }
 
-.fa-stack i:hover {
-  -webkit-animation: jello 1s;
-  animation: jello 1s;
+.fa-stack {
+  i:hover {
+    -webkit-animation: jello 1s;
+    animation: jello 1s;
+  }
 }
 
 .content {
