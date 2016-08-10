@@ -50,6 +50,12 @@ gulp.task('nodemon', ['babel', 'sass'], (cb) => {
       started = true;
       cb();
     }
+  }).on('restart', function onRestart() {
+    setTimeout(() => {
+      browserSync.reload({
+        stream: false
+      });
+    }, 500);
   });
 
   gulp.watch('./lib/sass/**/*.scss', ['sass']);
