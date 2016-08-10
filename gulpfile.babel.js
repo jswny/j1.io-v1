@@ -30,7 +30,7 @@ gulp.task('babel', () => {
 });
 
 gulp.task('browser-sync', ['nodemon'], () => {
-  browserSync(null, {
+  browserSync({
     proxy: 'localhost:3000',
     files: ['./public/**/*.*'],
     port: 5000
@@ -50,7 +50,7 @@ gulp.task('nodemon', ['babel', 'sass'], (cb) => {
       started = true;
       cb();
     }
-  }).on('restart', function onRestart() {
+  }).on('restart', () => {
     setTimeout(() => {
       browserSync.reload({
         stream: false
