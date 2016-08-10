@@ -10,7 +10,7 @@ let cache = new Cache();
 gulp.task('sass', () => {
   let stream = gulp.src('./lib/sass/**/*.scss')
     .pipe(cache.filter())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(cache.cache())
     .pipe(gulp.dest('./public/css/'));
 
@@ -29,12 +29,8 @@ gulp.task('babel', () => {
   return stream;
 });
 
-gulp.task('browser-sync', ['nodemon'], () => {
-  browserSync({
-    proxy: 'localhost:3000',
-    files: ['./public/**/*.*'],
-    port: 5000
-  });
+gulp.task('bs-reload', function () {
+  browserSync.reload();
 });
 
 gulp.task('nodemon', ['babel', 'sass'], (cb) => {
@@ -42,7 +38,6 @@ gulp.task('nodemon', ['babel', 'sass'], (cb) => {
   let stream = nodemon({
     script: './dist/index.js',
     watch: './lib',
-    ext: 'js hbs',
     tasks: ['babel']
     })
   .on('start', () => {
@@ -58,10 +53,21 @@ gulp.task('nodemon', ['babel', 'sass'], (cb) => {
     }, 500);
   });
 
-  gulp.watch('./lib/sass/**/*.scss', ['sass']);
-
   return stream;
 });
+
+gulp.task('browser-sync', ['nodemon'], () => {
+  browserSync({
+    proxy: 'localhost:3000',
+    files: ['./public/**/*.*'],
+    port: 5000
+  });
+});
+
+gulp.task('watch', ['browser-sync'], () => {
+  gulp.watch('./lib/sass/**/*.scss', ['sass']);
+  gulp.watch('./views/**/*.handlebars', ['bs-reload']);
+})
 
 gulp.task('build', () => {
   gulp.src('./lib/index.js')

@@ -5,7 +5,7 @@
   "private": "true",
   "dependencies": {
     "express": "^4.14.0",
-    "hbs": "^4.0.0",
+    "express-handlebars": "^3.0.0",
     "request": "^2.74.0",
     "spotify-web-api-node": "^2.3.0"
   },
