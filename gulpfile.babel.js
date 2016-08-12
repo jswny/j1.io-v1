@@ -4,6 +4,7 @@ import babel from 'gulp-babel';
 import nodemon from 'gulp-nodemon';
 import Cache from 'gulp-file-cache';
 import browserSync from 'browser-sync';
+import sourcemaps from 'gulp-sourcemaps';
 
 let cache = new Cache();
 
@@ -77,6 +78,8 @@ gulp.task('build', () => {
     .pipe(gulp.dest('./dist'));
 
   gulp.src('./lib/sass/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/css/'));
 });
