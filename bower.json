@@ -1,0 +1,21 @@
+{
+  "name": "j1.io",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Joe Sweeney <joe@j1.io> (http://j1.io/)"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jswny/j1.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pure": "^0.6.0"
+  }
+}

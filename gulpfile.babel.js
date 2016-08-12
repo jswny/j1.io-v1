@@ -66,7 +66,7 @@ gulp.task('browser-sync', ['nodemon'], () => {
 
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('./lib/sass/**/*.scss', ['sass']);
-  gulp.watch('./views/**/*.handlebars', ['bs-reload']);
+  gulp.watch('./views/**/*.hbs', ['bs-reload']);
 })
 
 gulp.task('build', () => {
