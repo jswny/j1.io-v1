@@ -4,6 +4,6 @@ WORKDIR /usr/src/j1.io
 COPY package.json /usr/src/j1.io
 RUN npm install
 COPY . /usr/src/j1.io
-RUN npm build
+RUN npm run build
 EXPOSE 3000
 CMD ["npm", "start"]
