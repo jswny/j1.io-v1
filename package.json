@@ -12,7 +12,7 @@
   },
   "scripts": {
     "develop": "NODE_ENV=development gulp watch",
-    "build": "bower install && gulp build",
+    "build": "bower install --allow-root & gulp build",
     "start": "NODE_ENV=production node dist/index.js"
   },
   "devDependencies": {
