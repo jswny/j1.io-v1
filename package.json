@@ -12,8 +12,9 @@
     "spotify-web-api-node": "^2.3.0"
   },
   "scripts": {
+    "postinstall": "bower install --allow-root",
     "develop": "NODE_ENV=development gulp watch",
-    "build": "bower install --allow-root & gulp build",
+    "build": "gulp build",
     "start": "NODE_ENV=production node dist/index.js"
   },
   "devDependencies": {
