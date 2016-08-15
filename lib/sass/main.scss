@@ -13,11 +13,6 @@ html, button, input, select, textarea,
   background: rgb(61, 79, 93);
 }
 
-#top-navbar {
-  text-align: center;
-  box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
-}
-
 .header {
   text-align: center;
   top: auto;
@@ -60,7 +55,7 @@ html, button, input, select, textarea,
   padding: 1em 0;
 }
 
-.pure-img-responsive {
+#j-logo {
   max-width: 20%;
   height: auto;
 }
@@ -80,7 +75,7 @@ html, button, input, select, textarea,
     margin-left: 25%;
   }
 
-  .pure-img-responsive {
+  #j-logo {
     max-width: 50%;
   }
 }
