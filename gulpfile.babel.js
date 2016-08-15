@@ -2,44 +2,48 @@ import gulp from 'gulp';
 import sass from 'gulp-sass';
 import babel from 'gulp-babel';
 import nodemon from 'gulp-nodemon';
-import Cache from 'gulp-file-cache';
+import gulpCache from 'gulp-file-cache';
 import browserSync from 'browser-sync';
 import sourcemaps from 'gulp-sourcemaps';
+import jshint from 'gulp-jshint';
+import stylish from 'jshint-stylish';
 
-let cache = new Cache();
+let cache = new gulpCache();
 
 gulp.task('sass', () => {
-  let stream = gulp.src('./lib/sass/**/*.scss')
+  return gulp.src('./lib/sass/**/*.scss')
     .pipe(cache.filter())
     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
     .pipe(cache.cache())
     .pipe(gulp.dest('./public/css/'));
-
-  return stream;
 });
 
 gulp.task('babel', () => {
-  let stream = gulp.src('./lib/index.js')
+  return gulp.src('./lib/index.js')
     .pipe(cache.filter())
     .pipe(babel({
       presets: ['es2015']
     }))
     .pipe(cache.cache())
     .pipe(gulp.dest('./dist'));
-
-  return stream;
 });
 
-gulp.task('bs-reload', function () {
+gulp.task('jshint', () => {
+  return gulp.src('./lib/*.js')
+    .pipe(jshint({ esversion: 6 }))
+    .pipe(jshint.reporter(stylish));
+});
+
+gulp.task('bs-reload', () => {
   browserSync.reload();
 });
 
-gulp.task('nodemon', ['babel', 'sass'], (cb) => {
+gulp.task('nodemon', ['jshint', 'babel', 'sass'], (cb) => {
   let started = false;
-  let stream = nodemon({
+  return nodemon({
     script: './dist/index.js',
     watch: './lib',
-    tasks: ['babel']
+    tasks: ['babel', 'jshint']
     })
   .on('start', () => {
     if (!started) {
@@ -53,8 +57,6 @@ gulp.task('nodemon', ['babel', 'sass'], (cb) => {
       });
     }, 500);
   });
-
-  return stream;
 });
 
 gulp.task('browser-sync', ['nodemon'], () => {
@@ -68,7 +70,7 @@ gulp.task('browser-sync', ['nodemon'], () => {
 gulp.task('watch', ['browser-sync'], () => {
   gulp.watch('./lib/sass/**/*.scss', ['sass']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
-})
+});
 
 gulp.task('build', () => {
   gulp.src('./lib/index.js')

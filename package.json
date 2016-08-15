@@ -26,7 +26,10 @@
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-file-cache": "0.0.1",
+    "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
-    "gulp-sass": "^2.3.2"
+    "gulp-sass": "^2.3.2",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.1"
   }
 }
