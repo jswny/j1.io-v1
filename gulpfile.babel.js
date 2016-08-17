@@ -7,16 +7,46 @@ import browserSync from 'browser-sync';
 import sourcemaps from 'gulp-sourcemaps';
 import jshint from 'gulp-jshint';
 import stylish from 'jshint-stylish';
+import webpack from 'gulp-webpack';
+import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
+
+let webpackConfig = {
+  entry: {
+    home: './lib/js/home.js',
+    projects: './lib/js/projects.js'
+  },
+  output: {
+    filename: '[name].js'
+  },
+  module: {
+    loaders: [
+      { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass'] }
+    ]
+  },
+  sassLoader: {
+    sourceMap: true,
+    outputStyle: 'compressed'
+  },
+  plugins: [
+    new commons('commons.js', ['home', 'projects'])
+  ]
+}
 
 let cache = new gulpCache();
 
-gulp.task('sass', () => {
-  return gulp.src('./lib/sass/**/*.scss')
-    .pipe(cache.filter())
-    .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-    .pipe(cache.cache())
-    .pipe(gulp.dest('./public/css/'));
+gulp.task('webpack', () => {
+  return gulp.src(['lib/js/home.js', 'lib/js/projects.js'])
+    .pipe(webpack(webpackConfig))
+    .pipe(gulp.dest('./public/js/bundles'));
 });
+
+// gulp.task('sass', () => {
+//   return gulp.src('./lib/sass/**/*.scss')
+//     .pipe(cache.filter())
+//     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+//     .pipe(cache.cache())
+//     .pipe(gulp.dest('./public/css/'));
+// });
 
 gulp.task('babel', () => {
   return gulp.src('./lib/index.js')
@@ -29,7 +59,7 @@ gulp.task('babel', () => {
 });
 
 gulp.task('jshint', () => {
-  return gulp.src('./lib/*.js')
+  return gulp.src('./lib/**/*.js')
     .pipe(jshint({ esversion: 6 }))
     .pipe(jshint.reporter(stylish));
 });
@@ -38,12 +68,12 @@ gulp.task('bs-reload', () => {
   browserSync.reload();
 });
 
-gulp.task('nodemon', ['jshint', 'babel', 'sass'], (cb) => {
+gulp.task('nodemon', ['jshint', 'babel', 'webpack'], (cb) => {
   let started = false;
   return nodemon({
     script: './dist/index.js',
-    watch: './lib',
-    tasks: ['babel', 'jshint']
+    watch: './lib/*.js',
+    tasks: ['babel']
     })
   .on('start', () => {
     if (!started) {
@@ -68,20 +98,15 @@ gulp.task('browser-sync', ['nodemon'], () => {
 });
 
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch('./lib/sass/**/*.scss', ['sass']);
+  gulp.watch(['./lib/sass/**/*.scss', './lib/js/**/*.js'], ['webpack']);
+  gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
 });
 
-gulp.task('build', () => {
+gulp.task('build', ['webpack'], () => {
   gulp.src('./lib/index.js')
     .pipe(babel({
       presets: ['es2015']
     }))
     .pipe(gulp.dest('./dist'));
-
-  gulp.src('./lib/sass/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./public/css/'));
 });
