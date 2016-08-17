@@ -12,19 +12,19 @@ import webpackConfig from './config/webpack.config.js';
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
-  return gulp.src('lib/js/pages')
+  return gulp.src('./lib/client/js/pages')
     .pipe(webpack(webpackConfig.prod))
-    .pipe(gulp.dest('./public/js/bundles'));
+    .pipe(gulp.dest('./public/webpack'));
 });
 
 gulp.task('babel', () => {
-  return gulp.src('./lib/index.js')
+  return gulp.src('./lib/server/index.js')
     .pipe(cache.filter())
     .pipe(babel({
       presets: ['es2015']
     }))
     .pipe(cache.cache())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/server'));
 });
 
 gulp.task('jshint', () => {
@@ -40,8 +40,8 @@ gulp.task('bs-reload', () => {
 gulp.task('nodemon', ['jshint', 'babel', 'webpack'], (cb) => {
   let started = false;
   return nodemon({
-    script: './dist/index.js',
-    watch: './lib/*.js',
+    script: './dist/server/index.js',
+    watch: './lib/server/*.js',
     tasks: ['babel']
     })
   .on('start', () => {
@@ -67,15 +67,15 @@ gulp.task('browser-sync', ['nodemon'], () => {
 });
 
 gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch(['./lib/sass/**/*.scss', './lib/js/**/*.js'], ['webpack']);
+  gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
   gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
 });
 
 gulp.task('build', ['webpack'], () => {
-  gulp.src('./lib/index.js')
+  gulp.src('./lib/server/index.js')
     .pipe(babel({
       presets: ['es2015']
     }))
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/server'));
 });

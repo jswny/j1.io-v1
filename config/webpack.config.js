@@ -3,12 +3,12 @@ import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
 export default {
   prod: {
     entry: {
-      home: './lib/js/pages/home.js',
-      projects: './lib/js/pages/projects.js'
+      home: './lib/client/js/pages/home.js',
+      projects: './lib/client/js/pages/projects.js'
     },
     output: {
       filename: '[name].js',
-      publicPath: 'js/bundles/'
+      publicPath: 'webpack/'
     },
     module: {
       loaders: [

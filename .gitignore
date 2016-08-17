@@ -1,5 +1,5 @@
 node_modules
 bower_components
-dist
+dist/client/webpack
+dist/server
 .gulp-cache
-public/js/bundles/**/*.*
