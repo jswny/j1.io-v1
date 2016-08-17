@@ -14,7 +14,7 @@ let cache = new gulpCache();
 gulp.task('webpack', () => {
   return gulp.src('./lib/client/js/pages')
     .pipe(webpack(webpackConfig.prod))
-    .pipe(gulp.dest('./public/webpack'));
+    .pipe(gulp.dest('./dist/client/webpack'));
 });
 
 gulp.task('babel', () => {
@@ -61,7 +61,7 @@ gulp.task('nodemon', ['jshint', 'babel', 'webpack'], (cb) => {
 gulp.task('browser-sync', ['nodemon'], () => {
   browserSync({
     proxy: 'localhost:3000',
-    files: ['./public/**/*.*'],
+    files: ['./dist/client/**/*.*'],
     port: 5000
   });
 });
