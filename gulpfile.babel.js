@@ -7,47 +7,13 @@ import sourcemaps from 'gulp-sourcemaps';
 import jshint from 'gulp-jshint';
 import stylish from 'jshint-stylish';
 import webpack from 'gulp-webpack';
-import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
-
-let webpackConfig = {
-  entry: {
-    home: './lib/js/pages/home.js',
-    projects: './lib/js/pages/projects.js'
-  },
-  output: {
-    filename: '[name].js',
-    publicPath: 'js/bundles/'
-  },
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass'] },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'stage-2']
-        }
-      }
-    ]
-  },
-  sassLoader: {
-    sourceMap: true,
-    outputStyle: 'compressed'
-  },
-  plugins: [
-    new commons('commons.js', ['home', 'projects'])
-  ]
-}
+import webpackConfig from './config/webpack.config.js';
 
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
   return gulp.src('lib/js/pages')
-    .pipe(webpack(webpackConfig))
+    .pipe(webpack(webpackConfig.prod))
     .pipe(gulp.dest('./public/js/bundles'));
 });
 

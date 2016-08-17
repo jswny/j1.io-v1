@@ -1,6 +1,5 @@
 node_modules
 bower_components
-config
 dist
 .gulp-cache
 public/js/bundles/**/*.*
