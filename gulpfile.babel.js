@@ -11,8 +11,8 @@ import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
 
 let webpackConfig = {
   entry: {
-    home: './lib/js/home.js',
-    projects: './lib/js/projects.js'
+    home: './lib/js/pages/home.js',
+    projects: './lib/js/pages/projects.js'
   },
   output: {
     filename: '[name].js',
@@ -20,10 +20,18 @@ let webpackConfig = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
+      { test: /\.css$/, loader: 'style!css' },
       { test: /\.scss$/, loaders: ['style', 'css?sourceMap', 'sass'] },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&minetype=application/font-woff' },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file-loader' },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'stage-2']
+        }
+      }
     ]
   },
   sassLoader: {
@@ -38,7 +46,7 @@ let webpackConfig = {
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
-  return gulp.src('lib/js')
+  return gulp.src('lib/js/pages')
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('./public/js/bundles'));
 });
@@ -54,7 +62,7 @@ gulp.task('babel', () => {
 });
 
 gulp.task('jshint', () => {
-  return gulp.src('./lib/**/*.js')
+  return gulp.src(['./lib/**/*.js', '!./lib/**/*.min.js'])
     .pipe(jshint({ esversion: 6 }))
     .pipe(jshint.reporter(stylish));
 });
