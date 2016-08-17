@@ -3,4 +3,4 @@ bower_components
 config
 dist
 .gulp-cache
-public/css/**/*.css
+public/js/bundles/**/*.*

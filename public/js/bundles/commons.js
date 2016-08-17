@@ -88,52 +88,12 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "js/bundles/";
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */,
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/******/ ({
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(2);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(4)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js!./main.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js!./main.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(3)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "html,button,input,select,textarea,.pure-g [class*=\"pure-u\"]{font-family:\"Roboto\", \"Helvetica\", \"Arial\", sans-serif}.heart{color:red}.sidebar{background:#3d4f5d}.header{text-align:center;top:auto;margin:3em auto;color:white}.sidebar-title{margin:0px}#sidebar-icons{padding-top:1em}#sidebar-icons a{color:white;padding-left:0.3em}.icon-background{color:#e81c4f}.fa-stack i:hover{-webkit-animation:jello 1s;animation:jello 1s}#content-container{padding:2em 3em 0}.footer{text-align:center;padding:1em 0}#j-logo{max-width:20%;height:auto}@media (min-width: 48em){.sidebar{position:fixed;top:0;bottom:0}.header{margin:80% 2em 0}.content{margin-left:25%}#j-logo{max-width:50%}}\n", "", {"version":3,"sources":["/./lib/sass/lib/sass/main.scss"],"names":[],"mappings":"AAEA,4DAEE,sDAAwD,CACzD,OAGC,SAAW,CACZ,SAGC,kBAAe,CAChB,QAGC,kBACA,SACA,gBACA,WAAa,CACd,eAGC,UAAY,CACb,eAGC,eAAiB,CAClB,iBAIG,YACA,kBAAoB,CACrB,iBAID,aAAe,CAChB,kBAIG,2BACA,kBAAoB,CACrB,mBAID,iBAAmB,CACpB,QAGC,kBACA,aAAe,CAChB,QAGC,cACA,WAAa,CACd,yBAGC,SACE,eACA,MACA,QAAU,CACX,QAGC,gBAAkB,CACnB,SAGC,eAAiB,CAClB,QAGC,aAAe,CAChB,CAAA","file":"main.scss","sourcesContent":["// @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';\n\nhtml, button, input, select, textarea,\n.pure-g [class *= \"pure-u\"] {\n  font-family: \"Roboto\", \"Helvetica\", \"Arial\", sans-serif;\n}\n\n.heart {\n  color: red;\n}\n\n.sidebar {\n  background: rgb(61, 79, 93);\n}\n\n.header {\n  text-align: center;\n  top: auto;\n  margin: 3em auto;\n  color: white;\n}\n\n.sidebar-title {\n  margin: 0px;\n}\n\n#sidebar-icons {\n  padding-top: 1em;\n}\n\n#sidebar-icons {\n  a {\n    color: white;\n    padding-left: 0.3em;\n  }\n}\n\n.icon-background {\n  color: #e81c4f;\n}\n\n.fa-stack {\n  i:hover {\n    -webkit-animation: jello 1s;\n    animation: jello 1s;\n  }\n}\n\n#content-container {\n  padding: 2em 3em 0;\n}\n\n.footer {\n  text-align: center;\n  padding: 1em 0;\n}\n\n#j-logo {\n  max-width: 20%;\n  height: auto;\n}\n\n@media (min-width: 48em) {\n  .sidebar {\n    position: fixed;\n    top: 0;\n    bottom: 0;\n  }\n\n  .header {\n    margin: 80% 2em 0;\n  }\n\n  .content {\n    margin-left: 25%;\n  }\n\n  #j-logo {\n    max-width: 50%;\n  }\n}\n"],"sourceRoot":"webpack://"}]);
-
-	// exports
-
-
-/***/ },
-/* 3 */
+/***/ 16:
 /***/ function(module, exports) {
 
 	/*
@@ -189,7 +149,8 @@
 
 
 /***/ },
-/* 4 */
+
+/***/ 17:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -440,5 +401,48 @@
 	}
 
 
+/***/ },
+
+/***/ 33:
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(34);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(17)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js!./main.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js!./main.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+
+/***/ 34:
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(16)();
+	// imports
+
+
+	// module
+	exports.push([module.id, "html,button,input,select,textarea,.pure-g [class*=\"pure-u\"]{font-family:\"Roboto\", \"Helvetica\", \"Arial\", sans-serif}.heart{color:red}.sidebar{background:#3d4f5d}.header{text-align:center;top:auto;margin:3em auto;color:white}.sidebar-title{margin:0px}#sidebar-icons{padding-top:1em}#sidebar-icons a{color:white;padding-left:0.3em}.icon-background{color:#e81c4f}.fa-stack i:hover{-webkit-animation:jello 1s;animation:jello 1s}#content-container{padding:2em 3em 0}.footer{text-align:center;padding:1em 0}#j-logo{max-width:20%;height:auto}@media (min-width: 48em){.sidebar{position:fixed;top:0;bottom:0}.header{margin:80% 2em 0}.content{margin-left:25%}#j-logo{max-width:50%}}\n", "", {"version":3,"sources":["/./lib/sass/lib/sass/main.scss"],"names":[],"mappings":"AAEA,4DAEE,sDAAwD,CACzD,OAGC,SAAW,CACZ,SAGC,kBAAe,CAChB,QAGC,kBACA,SACA,gBACA,WAAa,CACd,eAGC,UAAY,CACb,eAGC,eAAiB,CAClB,iBAIG,YACA,kBAAoB,CACrB,iBAID,aAAe,CAChB,kBAIG,2BACA,kBAAoB,CACrB,mBAID,iBAAmB,CACpB,QAGC,kBACA,aAAe,CAChB,QAGC,cACA,WAAa,CACd,yBAGC,SACE,eACA,MACA,QAAU,CACX,QAGC,gBAAkB,CACnB,SAGC,eAAiB,CAClB,QAGC,aAAe,CAChB,CAAA","file":"main.scss","sourcesContent":["// @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';\r\n\r\nhtml, button, input, select, textarea,\r\n.pure-g [class *= \"pure-u\"] {\r\n  font-family: \"Roboto\", \"Helvetica\", \"Arial\", sans-serif;\r\n}\r\n\r\n.heart {\r\n  color: red;\r\n}\r\n\r\n.sidebar {\r\n  background: rgb(61, 79, 93);\r\n}\r\n\r\n.header {\r\n  text-align: center;\r\n  top: auto;\r\n  margin: 3em auto;\r\n  color: white;\r\n}\r\n\r\n.sidebar-title {\r\n  margin: 0px;\r\n}\r\n\r\n#sidebar-icons {\r\n  padding-top: 1em;\r\n}\r\n\r\n#sidebar-icons {\r\n  a {\r\n    color: white;\r\n    padding-left: 0.3em;\r\n  }\r\n}\r\n\r\n.icon-background {\r\n  color: #e81c4f;\r\n}\r\n\r\n.fa-stack {\r\n  i:hover {\r\n    -webkit-animation: jello 1s;\r\n    animation: jello 1s;\r\n  }\r\n}\r\n\r\n#content-container {\r\n  padding: 2em 3em 0;\r\n}\r\n\r\n.footer {\r\n  text-align: center;\r\n  padding: 1em 0;\r\n}\r\n\r\n#j-logo {\r\n  max-width: 20%;\r\n  height: auto;\r\n}\r\n\r\n@media (min-width: 48em) {\r\n  .sidebar {\r\n    position: fixed;\r\n    top: 0;\r\n    bottom: 0;\r\n  }\r\n\r\n  .header {\r\n    margin: 80% 2em 0;\r\n  }\r\n\r\n  .content {\r\n    margin-left: 25%;\r\n  }\r\n\r\n  #j-logo {\r\n    max-width: 50%;\r\n  }\r\n}\r\n"],"sourceRoot":"webpack://"}]);
+
+	// exports
+
+
 /***/ }
-/******/ ]);
+
+/******/ });
