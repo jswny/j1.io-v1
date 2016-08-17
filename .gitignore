@@ -4,3 +4,4 @@ config
 dist
 .gulp-cache
 public/js/bundles/**/*.*
+public/js/bundles/commons.js

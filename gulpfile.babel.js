@@ -1,5 +1,4 @@
 import gulp from 'gulp';
-import sass from 'gulp-sass';
 import babel from 'gulp-babel';
 import nodemon from 'gulp-nodemon';
 import gulpCache from 'gulp-file-cache';
@@ -39,18 +38,10 @@ let webpackConfig = {
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
-  return gulp.src(['lib/js/home.js', 'lib/js/projects.js'])
+  return gulp.src('lib/js')
     .pipe(webpack(webpackConfig))
     .pipe(gulp.dest('./public/js/bundles'));
 });
-
-// gulp.task('sass', () => {
-//   return gulp.src('./lib/sass/**/*.scss')
-//     .pipe(cache.filter())
-//     .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-//     .pipe(cache.cache())
-//     .pipe(gulp.dest('./public/css/'));
-// });
 
 gulp.task('babel', () => {
   return gulp.src('./lib/index.js')

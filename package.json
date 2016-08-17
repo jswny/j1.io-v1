@@ -32,7 +32,6 @@
     "gulp-file-cache": "0.0.1",
     "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
-    "gulp-sass": "^2.3.2",
     "gulp-webpack": "^1.5.0",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.1",
