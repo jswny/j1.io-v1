@@ -6,14 +6,14 @@ import browserSync from 'browser-sync';
 import sourcemaps from 'gulp-sourcemaps';
 import jshint from 'gulp-jshint';
 import stylish from 'jshint-stylish';
-import webpack from 'gulp-webpack';
+import webpack from 'webpack-stream';
 import webpackConfig from './config/webpack.config.js';
 
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
-  return gulp.src('./lib/client/js/pages')
-    .pipe(webpack(webpackConfig.prod))
+  gulp.src('./lib/client/js/pages')
+    .pipe(webpack(webpackConfig.dev))
     .pipe(gulp.dest('./dist/client/webpack'));
 });
 
@@ -66,16 +66,20 @@ gulp.task('browser-sync', ['nodemon'], () => {
   });
 });
 
-gulp.task('watch', ['browser-sync'], () => {
-  gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
+gulp.task('watch', ['browser-sync', 'webpack'], () => {
+  // gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
   gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
 });
 
-gulp.task('build', ['webpack'], () => {
+gulp.task('build', () => {
   gulp.src('./lib/server/index.js')
     .pipe(babel({
       presets: ['es2015']
     }))
     .pipe(gulp.dest('./dist/server'));
+
+  return gulp.src('./lib/client/js/pages')
+    .pipe(webpack(webpackConfig.prod))
+    .pipe(gulp.dest('./dist/client/webpack'));
 });
