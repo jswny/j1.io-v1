@@ -7,7 +7,6 @@
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
     "express-handlebars": "^3.0.0",
-    "gulp-sourcemaps": "^1.6.0",
     "request": "^2.74.0",
     "spotify-web-api-node": "^2.3.0"
   },
@@ -30,6 +29,7 @@
     "font-awesome-webpack": "0.0.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
+    "gulp-cached": "^1.1.0",
     "gulp-jshint": "^2.0.1",
     "gulp-nodemon": "^2.1.0",
     "jshint": "^2.9.2",

@@ -3,7 +3,6 @@ import babel from 'gulp-babel';
 import nodemon from 'gulp-nodemon';
 import cache from 'gulp-cached';
 import browserSync from 'browser-sync';
-import sourcemaps from 'gulp-sourcemaps';
 import jshint from 'gulp-jshint';
 import stylish from 'jshint-stylish';
 import webpack from 'webpack-stream';
