@@ -12,7 +12,7 @@ import webpackConfig from './config/webpack.config.js';
 let cache = new gulpCache();
 
 gulp.task('webpack', () => {
-  gulp.src('./lib/client/js/pages')
+  return gulp.src('./lib/client/js/pages')
     .pipe(webpack(webpackConfig.dev))
     .pipe(gulp.dest('./dist/client/webpack'));
 });
@@ -37,11 +37,11 @@ gulp.task('bs-reload', () => {
   browserSync.reload();
 });
 
-gulp.task('nodemon', ['jshint', 'babel', 'webpack'], (cb) => {
+gulp.task('nodemon', ['babel'], (cb) => {
   let started = false;
   return nodemon({
     script: './dist/server/index.js',
-    watch: './lib/server/*.js',
+    watch: './lib/server',
     tasks: ['babel']
     })
   .on('start', () => {
@@ -58,7 +58,7 @@ gulp.task('nodemon', ['jshint', 'babel', 'webpack'], (cb) => {
   });
 });
 
-gulp.task('browser-sync', ['nodemon'], () => {
+gulp.task('browser-sync', ['nodemon', 'webpack', 'jshint'], () => {
   browserSync({
     proxy: 'localhost:3000',
     files: ['./dist/client/**/*.*'],
@@ -66,8 +66,8 @@ gulp.task('browser-sync', ['nodemon'], () => {
   });
 });
 
-gulp.task('watch', ['browser-sync', 'webpack'], () => {
-  // gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
+gulp.task('watch', ['browser-sync'], () => {
+  gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
   gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
 });

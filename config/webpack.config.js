@@ -2,7 +2,6 @@ import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
 
 export default {
   dev: {
-    watch: true,
     entry: {
       home: './lib/client/js/pages/home.js',
       projects: './lib/client/js/pages/projects.js'
