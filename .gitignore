@@ -2,4 +2,3 @@ node_modules
 bower_components
 dist/client/webpack
 dist/server
-.gulp-cache
