@@ -11,7 +11,8 @@ import markdown from 'gulp-markdown';
 import rename from 'gulp-rename';
 
 gulp.task('blog', () => {
-  return gulp.src('./lib/server/posts/meteor-mongo.md')
+  return gulp.src('./lib/server/posts/**/*.md')
+    .pipe(cache('blog'))
     .pipe(markdown())
     .pipe(rename((path) => {
       path.extname = '.hbs'
@@ -87,6 +88,13 @@ gulp.task('build', () => {
       presets: ['es2015', 'stage-2']
     }))
     .pipe(gulp.dest('./dist/server'));
+
+  gulp.src('./lib/server/posts/**/*.md')
+    .pipe(markdown())
+    .pipe(rename((path) => {
+      path.extname = '.hbs'
+    }))
+    .pipe(gulp.dest('./dist/server/posts'));
 
   return gulp.src('./lib/client/js/pages')
     .pipe(webpack(webpackConfig.prod))
