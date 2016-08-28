@@ -7,6 +7,17 @@ import jshint from 'gulp-jshint';
 import stylish from 'jshint-stylish';
 import webpack from 'webpack-stream';
 import webpackConfig from './config/webpack.config.js';
+import markdown from 'gulp-markdown';
+import rename from 'gulp-rename';
+
+gulp.task('blog', () => {
+  return gulp.src('./lib/server/posts/meteor-mongo.md')
+    .pipe(markdown())
+    .pipe(rename((path) => {
+      path.extname = '.hbs'
+    }))
+    .pipe(gulp.dest('./dist/server/posts'));
+});
 
 gulp.task('webpack', () => {
   return gulp.src('./lib/client/js/pages')
@@ -68,10 +79,6 @@ gulp.task('watch', ['browser-sync'], () => {
   gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
   gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
-});
-
-gulp.task('watch2', ['webpack'], () => {
-  gulp.watch('./lib/**/*.js', ['webpack']);
 });
 
 gulp.task('build', () => {

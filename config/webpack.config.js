@@ -8,7 +8,7 @@ export default {
     },
     output: {
       filename: '[name].js',
-      publicPath: 'webpack/'
+      publicPath: '/webpack/'
     },
     module: {
       loaders: [
@@ -41,7 +41,7 @@ export default {
     },
     output: {
       filename: '[name].js',
-      publicPath: 'webpack/'
+      publicPath: '/webpack/'
     },
     module: {
       loaders: [

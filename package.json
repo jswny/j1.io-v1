@@ -13,7 +13,7 @@
   "scripts": {
     "develop": "NODE_ENV=development gulp watch",
     "build": "gulp build",
-    "start": "NODE_ENV=production node dist/index.js"
+    "start": "NODE_ENV=production node dist/server/index.js"
   },
   "devDependencies": {
     "animate.css": "^3.5.1",
@@ -31,7 +31,9 @@
     "gulp-babel": "^6.1.2",
     "gulp-cached": "^1.1.0",
     "gulp-jshint": "^2.0.1",
+    "gulp-markdown": "^1.2.0",
     "gulp-nodemon": "^2.1.0",
+    "gulp-rename": "^1.2.2",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.2.1",
     "less": "^2.7.1",
