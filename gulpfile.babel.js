@@ -76,10 +76,11 @@ gulp.task('browser-sync', ['nodemon', 'webpack', 'jshint'], () => {
   });
 });
 
-gulp.task('watch', ['browser-sync'], () => {
+gulp.task('watch', ['browser-sync', 'blog'], () => {
   gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
   gulp.watch('./lib/**/*.js', ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
+  gulp.watch('./lib/server/posts/**/*.md', ['blog', 'bs-reload']);
 });
 
 gulp.task('build', () => {
