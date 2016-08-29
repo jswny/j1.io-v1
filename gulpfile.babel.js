@@ -84,7 +84,8 @@ gulp.task('watch', ['browser-sync', 'blog'], () => {
 });
 
 gulp.task('build', () => {
-  gulp.src('./lib/server/index.js')
+  gulp.src('./lib/server/**/*.js')
+    .pipe(cache('babel'))
     .pipe(babel({
       presets: ['es2015', 'stage-2']
     }))
