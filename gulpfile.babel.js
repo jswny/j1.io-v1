@@ -13,7 +13,7 @@ import rename from 'gulp-rename';
 gulp.task('blog', () => {
   return gulp.src('./lib/server/posts/**/*.md')
     .pipe(cache('blog'))
-    .pipe(markdown())
+    .pipe(markdown({ langPrefix:'language-' }))
     .pipe(rename((path) => {
       path.extname = '.hbs'
     }))
@@ -37,7 +37,7 @@ gulp.task('babel', () => {
 });
 
 gulp.task('jshint', () => {
-  return gulp.src(['./lib/**/*.js', '!./lib/**/*.min.js'])
+  return gulp.src(['./lib/**/*.js', '!./lib/client/js/vendor/**/*.js'])
     .pipe(cache('jshint'))
     .pipe(jshint({ esversion: 6 }))
     .pipe(jshint.reporter(stylish));
@@ -77,8 +77,8 @@ gulp.task('browser-sync', ['nodemon', 'webpack', 'jshint'], () => {
 });
 
 gulp.task('watch', ['browser-sync', 'blog'], () => {
-  gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/js/**/*.js'], ['webpack']);
-  gulp.watch('./lib/**/*.js', ['jshint']);
+  gulp.watch(['./lib/client/sass/**/*.scss', './lib/client/css/**/*.css', './lib/client/js/**/*.js'], ['webpack']);
+  gulp.watch(['./lib/**/*.js', '!./lib/client/js/vendor/**/*.js'], ['jshint']);
   gulp.watch('./views/**/*.hbs', ['bs-reload']);
   gulp.watch('./lib/server/posts/**/*.md', ['blog', 'bs-reload']);
 });

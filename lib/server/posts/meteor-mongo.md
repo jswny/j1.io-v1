@@ -3,11 +3,11 @@
 ## Server-Side
 First, we need to set up the database on the server side. If you are using Meteor 1.3, you should place this code inside the `/server` directory of your app. It will be automatically loaded into the server. 
 
-```
+```javascript
 var database = new MongoInternals.RemoteCollectionDriver('mongodb://user:password@localhost:27017/myapp')
 Posts = new Mongo.Collection("posts", { _driver: database })
 Meteor.publish('posts', function() {
-    return Posts.find()
+  return Posts.find()
 })
 ```
 
@@ -16,7 +16,7 @@ We simply create a new `RemoteCollectionDriver` which is attached to our externa
 ## Client-Side
 All we need to do on the client side is create a new collection, and subscribe to it, so that we can use it as normal.
 
-```
+```javascript
 Posts = new Mongo.Collection("posts")
 Meteor.subscribe('posts')
 ```
