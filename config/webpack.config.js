@@ -1,4 +1,5 @@
 import commons from 'webpack/lib/optimize/CommonsChunkPlugin';
+import webpack from 'webpack';
 
 let dev = {
   entry: {
@@ -65,7 +66,12 @@ let prod = {
     outputStyle: 'compressed'
   },
   plugins: [
-    new commons('commons.js', ['home', 'projects', 'post'])
+    new commons('commons.js', ['home', 'projects', 'post']),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ]
 }
 
